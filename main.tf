@@ -42,6 +42,7 @@ module "compute_module" {
   network_security_group_id = module.network_security_group.network_security_group_id
   subnet_id = module.virtual_network.subnet_id
   location = "centralus"
+  prefix = var.prefix
 }
 
   resource "null_resource" "configure-cat-app" {
