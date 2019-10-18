@@ -1,15 +1,15 @@
 module "rg" {
-  source  = "app.terraform.io/jlinn/rg/azurerm"
-  version = "0.0.2"
+  source  = "tfedemo.tfedemo.com/hrb/resource-group/azurerm"
+  version = "1.1.1"
 
   location = "Central US"
-  name = "var.resourse_group"
+  name = "var.resourse_group_name"
   
 }
   
 module "virtual_network" {
-  source  = "app.terraform.io/jlinn/virtual-network/azurerm"
-  version = "0.0.5"
+  source  = "tfedemo.tfedemo.com/hrb/virtual-network/azurerm"
+  version = "1.1.1"
 
   resource_group_location = module.rg.resource_group_location
   resource_group_name = module.rg.resource_group_name
@@ -17,8 +17,8 @@ module "virtual_network" {
 }
 
 module "network_security_group" {
-  source  = "app.terraform.io/jlinn/network-security-group/azurerm"
-  version = "1.0.1"
+  source  = "tfedemo.tfedemo.com/hrb/network-security-group/azurerm"
+  version = "1.1.2"
 
   location = "centralus"
   resource_group_name = "${module.rg.resource_group_name}"
@@ -36,8 +36,8 @@ module "network_security_group" {
 }
   
 module "compute_module" {
-  source  = "app.terraform.io/jlinn/computeModule/azurerm"
-  version = "0.0.10"
+  source  = "tfedemo.tfedemo.com/hrb/computeModule/azurerm"
+  version = "1.1.1"
   resource_group_name = module.rg.resource_group_name
   network_security_group_id = module.network_security_group.network_security_group_id
   subnet_id = module.virtual_network.subnet_id
