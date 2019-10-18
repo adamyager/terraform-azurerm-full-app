@@ -3,7 +3,7 @@ module "rg" {
   version = "1.1.1"
 
   location = "Central US"
-  name = "var.resourse_group_name"
+  name = var.resourse_group_name
   
 }
   
