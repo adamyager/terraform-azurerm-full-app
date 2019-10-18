@@ -3,7 +3,7 @@ module "rg" {
   version = "0.0.2"
 
   location = "Central US"
-  name = "jlinn-demo"
+  name = "var.resourse_group"
   
 }
   
