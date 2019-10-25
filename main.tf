@@ -1,5 +1,5 @@
 module "rg" {
-  source  = "tfedemo.tfedemo.com/hrb/resource-group/azurerm"
+  source  = "tfedemo.tfedemo.com/hrb1/resource-group/azurerm"
   version = "1.1.1"
 
   location = "Central US"
@@ -8,7 +8,7 @@ module "rg" {
 }
   
 module "virtual_network" {
-  source  = "tfedemo.tfedemo.com/hrb/virtual-network/azurerm"
+  source  = "tfedemo.tfedemo.com/hrb1/virtual-network/azurerm"
   version = "1.1.1"
 
   resource_group_location = module.rg.resource_group_location
@@ -17,7 +17,7 @@ module "virtual_network" {
 }
 
 module "network_security_group" {
-  source  = "tfedemo.tfedemo.com/hrb/network-security-group/azurerm"
+  source  = "tfedemo.tfedemo.com/hrb1/network-security-group/azurerm"
   version = "1.1.2"
 
   location = "centralus"
@@ -36,7 +36,7 @@ module "network_security_group" {
 }
   
 module "compute_module" {
-  source  = "tfedemo.tfedemo.com/hrb/computeModule/azurerm"
+  source  = "tfedemo.tfedemo.com/hrb1/computeModule/azurerm"
   version = "1.1.1"
   resource_group_name = module.rg.resource_group_name
   network_security_group_id = module.network_security_group.network_security_group_id
